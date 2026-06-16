@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,6 +26,8 @@ function Signup() {
         formData
       );
       console.log("Response:", res.data);
+alert("Registration Successful");
+navigate("/");
       if (res.data.success){
         alert(res.data.message);
       }else{
@@ -36,48 +40,115 @@ function Signup() {
  }
   };
 
-  return (
-    <div>
-      <h2>Signup</h2>
+    return (
+  <div
+    style={{
+      minHeight: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background:
+        "linear-gradient(135deg,#2563eb,#7c3aed)",
+    }}
+  >
+    <div
+      style={{
+        background: "#fff",
+        padding: "40px",
+        borderRadius: "20px",
+        width: "400px",
+        boxShadow:
+          "0 10px 30px rgba(0,0,0,0.2)",
+      }}
+    >
+      <h1
+        style={{
+          textAlign: "center",
+          color: "#1e293b",
+          marginBottom: "10px",
+        }}
+      >
+        Employee Management System
+      </h1>
+
+      <p
+        style={{
+          textAlign: "center",
+          color: "#64748b",
+          marginBottom: "25px",
+        }}
+      >
+        Create your account
+      </p>
 
       <form onSubmit={handleSubmit}>
-
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Enter Name"
           onChange={handleChange}
           required
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginBottom: "15px",
+            border: "1px solid #cbd5e1",
+            borderRadius: "10px",
+            fontSize: "15px",
+          }}
         />
-
-        <br /><br />
 
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Enter Email"
           onChange={handleChange}
           required
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginBottom: "15px",
+            border: "1px solid #cbd5e1",
+            borderRadius: "10px",
+            fontSize: "15px",
+          }}
         />
-
-        <br /><br />
 
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter Password"
           onChange={handleChange}
           required
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginBottom: "20px",
+            border: "1px solid #cbd5e1",
+            borderRadius: "10px",
+            fontSize: "15px",
+          }}
         />
 
-        <br /><br />
-
-        <button type="submit">
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "12px",
+            background: "#2563eb",
+            color: "#fff",
+            border: "none",
+            borderRadius: "10px",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontWeight: "bold",
+          }}
+        >
           Register
         </button>
       </form>
     </div>
-  );
+  </div>
+);
 }
-
 export default Signup;

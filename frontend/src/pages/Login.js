@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -132,6 +132,25 @@ function Login() {
             Login
           </button>
         </form>
+        <p
+  style={{
+    textAlign: "center",
+    marginTop: "15px",
+    color: "#64748b",
+  }}
+>
+  Don't have an account?{" "}
+  <Link
+    to="/signup"
+    style={{
+      color: "#2563eb",
+      fontWeight: "bold",
+      textDecoration: "none",
+    }}
+  >
+    Sign Up
+  </Link>
+</p>
       </div>
     </div>
   );
