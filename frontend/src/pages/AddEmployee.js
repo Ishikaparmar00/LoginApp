@@ -51,6 +51,14 @@ const handleSubmit = async (e) => {
     }
 
     fetchEmployees();
+    setFormData({
+  name: "",
+  email: "",
+  phone: "",
+  address: "",
+  designation: "",
+  department_id: ""
+});
 
   } catch (error) {
     console.log(error);
@@ -66,57 +74,92 @@ const handleChange = (e) => {
   });
 };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+  <div className="section">
+    <h2>{selectedEmployee ? "Update Employee" : "Add Employee"}</h2>
+
+    <form onSubmit={handleSubmit} className="form-grid">
+
+      <div>
+        <label>Name</label>
+        <input
+  type="text"
   name="name"
-  placeholder="Name"
+  placeholder="Enter Name"
   value={formData.name}
   onChange={handleChange}
+  required
 />
+      </div>
 
-<input
-  name="email"
-  placeholder="Email"
-  value={formData.email}
-  onChange={handleChange}
-/>
+      <div>
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-<input
+      <div>
+        <label>Phone</label>
+        <input
+  type="tel"
   name="phone"
-  placeholder="Phone"
+  placeholder="Enter Phone"
   value={formData.phone}
   onChange={handleChange}
+  maxLength="10"
+  pattern="[0-9]{10}"
+  required
 />
+      </div>
 
-<input
+      <div>
+        <label>Address</label>
+        <input
+  type="text"
   name="address"
-  placeholder="Address"
+  placeholder="Enter Address"
   value={formData.address}
   onChange={handleChange}
+  required
 />
+      </div>
 
-<input
+      <div>
+        <label>Designation</label>
+        <input
+  type="text"
   name="designation"
-  placeholder="Designation"
+  placeholder="Enter Designation"
   value={formData.designation}
   onChange={handleChange}
+  required
 />
+      </div>
 
-<input
+      <div>
+        <label>Department ID</label>
+        <input
+  type="number"
   name="department_id"
-  placeholder="Department ID"
+  placeholder="Enter Department ID"
   value={formData.department_id}
   onChange={handleChange}
+  required
 />
-      <button type="submit">
-  {
-    selectedEmployee
-      ? "Update Employee"
-      : "Add Employee"
-  }
-</button>
+      </div>
+
+      <button className="submit" type="submit">
+        {selectedEmployee ? "Update Employee" : "Add Employee"}
+      </button>
+
     </form>
-  );
+  </div>
+);
 }
 
 export default AddEmployee;

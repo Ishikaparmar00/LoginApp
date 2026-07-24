@@ -1,3 +1,4 @@
+import "../styles/leave.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 const LeaveManagement = ({ refreshDashboard }) => {
@@ -155,7 +156,7 @@ if (refreshDashboard) {
 };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="leave-container">
       <h2>Leave Management</h2>
 
       <form onSubmit={handleSubmit}>
@@ -308,19 +309,52 @@ if (refreshDashboard) {
 
   <td>{leave.total_days}</td>
   <td>{leave.reason}</td>
-  <td>{leave.status}</td>
+  <td>
+  <span
+    style={{
+      padding: "5px 10px",
+      borderRadius: "20px",
+      color: "#fff",
+      background:
+        leave.status === "Approved"
+          ? "#22c55e"
+          : leave.status === "Rejected"
+          ? "#ef4444"
+          : "#f59e0b"
+    }}
+  >
+    {leave.status}
+  </span>
+</td>
 <td>
   <button
-    onClick={() => approveLeave(leave.id, "Approved")}
-  >
-    Approve
-  </button>
+  style={{
+    background: "#22c55e",
+    color: "#fff",
+    border: "none",
+    padding: "6px 12px",
+    borderRadius: "6px",
+    marginRight: "8px",
+    cursor: "pointer"
+  }}
+  onClick={() => approveLeave(leave.id, "Approved")}
+>
+  ✓ Approve
+</button>
 
-  <button
-    onClick={() => approveLeave(leave.id, "Rejected")}
-  >
-    Reject
-  </button>
+<button
+  style={{
+    background: "#ef4444",
+    color: "#fff",
+    border: "none",
+    padding: "6px 12px",
+    borderRadius: "6px",
+    cursor: "pointer"
+  }}
+  onClick={() => approveLeave(leave.id, "Rejected")}
+>
+  ✕ Reject
+</button>
 </td>
 </tr>
   ))}

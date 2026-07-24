@@ -51,34 +51,46 @@ function Login() {
       }}
     >
       <div
-        style={{
-          background: "#fff",
-          padding: "40px",
-          borderRadius: "20px",
-          width: "400px",
-          boxShadow:
-            "0 10px 30px rgba(0,0,0,0.2)",
-        }}
-      >
-        <h1
-          style={{
-            textAlign: "center",
-            color: "#1e293b",
-            marginBottom: "10px",
-          }}
-        >
-          Employee Management System
-        </h1>
-
-        <p
-          style={{
-            textAlign: "center",
-            color: "#64748b",
-            marginBottom: "25px",
-          }}
-        >
-          Login to continue
-        </p>
+  style={{
+    background: "#fff",
+    padding: "45px",
+    borderRadius: "20px",
+    width: "430px",
+    boxShadow: "0 20px 40px rgba(0,0,0,0.18)",
+    border: "1px solid #e2e8f0",
+  }}
+>
+<div
+  style={{
+    fontSize: "60px",
+    textAlign: "center",
+    marginBottom: "10px",
+  }}
+>
+  👨‍💼
+</div>
+<h1
+  style={{
+    textAlign: "center",
+    color: "#2563eb",
+    marginBottom: "5px",
+    fontSize: "30px",
+    fontWeight: "700",
+  }}
+>
+  Employee Management System
+</h1>
+<p
+  style={{
+    textAlign: "center",
+    color: "#64748b",
+    marginBottom: "30px",
+    fontSize: "16px",
+  }}
+>
+  Welcome Back 👋 <br />
+  Please login to continue
+</p>
 
         <form onSubmit={handleSubmit}>
           <input
@@ -89,13 +101,15 @@ function Login() {
             onChange={handleChange}
             required
             style={{
-              width: "100%",
-              padding: "12px",
-              marginBottom: "15px",
-              border: "1px solid #cbd5e1",
-              borderRadius: "10px",
-              fontSize: "15px",
-            }}
+  width: "100%",
+  padding: "14px",
+  marginBottom: "18px",
+  border: "1px solid #d1d5db",
+  borderRadius: "10px",
+  fontSize: "15px",
+  outline: "none",
+  boxSizing: "border-box",
+}}
           />
 
           <input
@@ -118,16 +132,17 @@ function Login() {
           <button
             type="submit"
             style={{
-              width: "100%",
-              padding: "12px",
-              background: "#2563eb",
-              color: "#fff",
-              border: "none",
-              borderRadius: "10px",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontWeight: "bold",
-            }}
+  width: "100%",
+  padding: "14px",
+  background: "linear-gradient(90deg,#2563eb,#4f46e5)",
+  color: "#fff",
+  border: "none",
+  borderRadius: "10px",
+  cursor: "pointer",
+  fontSize: "16px",
+  fontWeight: "600",
+  transition: "0.3s",
+}}
           >
             Login
           </button>
